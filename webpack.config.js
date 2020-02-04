@@ -38,6 +38,11 @@ module.exports = {
         ],
       },
       {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+      },
+      {
         enforce: 'pre',
         test: /\.(js|vue)$/,
         exclude: [/node_modules/],
