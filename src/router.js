@@ -8,7 +8,7 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      component: () => import('./views/HelloVue'),
+      component: () => import(/* webpackChunkName: "HelloVue" */'./views/HelloVue'),
     },
   ],
 })

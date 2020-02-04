@@ -9,9 +9,11 @@ const isProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
-  entry: './src/index.js',
+  entry: {
+    app: './src/index.js',
+  },
   output: {
-    filename: '[name].[chunkhash].js',
+    filename: isProduction ? 'js/[name].[chunkhash].js' : '[id].js',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {
@@ -53,7 +55,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].[chunkhash].css',
+      filename: 'css/[name].[chunkhash].css',
     }),
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
