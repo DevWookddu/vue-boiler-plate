@@ -12,13 +12,13 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: '[name].[chunkhash].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
       },
       {
         test: /\.s?(a|c)ss$/,
@@ -31,34 +31,40 @@ module.exports = {
             options: {
               sourceMap: true,
               resources: [
-                path.resolve(__dirname, 'src/assets/scss/base/_variable.scss')
-              ]
-            }
-          }
+                path.resolve(__dirname, 'src/assets/scss/base/_variable.scss'),
+              ],
+            },
+          },
         ],
-      }
-    ]
+      },
+      {
+        enforce: 'pre',
+        test: /\.(js|vue)$/,
+        exclude: [/node_modules/],
+        loader: 'eslint-loader',
+      },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].[chunkhash].css'
+      filename: '[name].[chunkhash].css',
     }),
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: './index.html',
-      filename: path.resolve(__dirname, 'dist/index.html')
-    })
+      filename: path.resolve(__dirname, 'dist/index.html'),
+    }),
   ],
   resolve: {
-    extensions: ['.vue', '.js', '.json', '.scss']
+    extensions: ['.vue', '.js', '.json', '.scss'],
   },
   devServer: {
     disableHostCheck: true,
     compress: false,
     host: 'localhost',
     port: 8080,
-    https: isProduction
+    https: isProduction,
   },
-  stats: isProduction ? 'normal' : 'errors-warnings'
+  stats: isProduction ? 'normal' : 'errors-warnings',
 }
