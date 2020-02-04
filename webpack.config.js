@@ -1,12 +1,16 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
 const path = require('path')
 
+const isProduction = process.env.NODE_ENV === 'production'
+
 module.exports = {
-  mode: 'production',
+  mode: process.env.NODE_ENV || 'development',
   entry: './src/index.js',
   output: {
-    filename: 'bundle.js',
+    filename: '[name].[chunkhash].js',
     path: path.resolve(__dirname, 'dist')
   },
   module: {
@@ -18,7 +22,7 @@ module.exports = {
       {
         test: /\.s?(a|c)ss$/,
         use: [
-          'vue-style-loader',
+          isProduction ? MiniCssExtractPlugin.loader : 'vue-style-loader',
           { loader: 'css-loader', options: { sourceMap: true } },
           { loader: 'sass-loader', options: { sourceMap: true } },
           {
@@ -35,6 +39,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].[chunkhash].css'
+    }),
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: './index.html',
@@ -49,7 +56,7 @@ module.exports = {
     compress: false,
     host: 'localhost',
     port: 8080,
-    https: process.env.NODE_ENV === 'production'
+    https: isProduction
   },
-  stats: 'errors-warnings'
+  stats: isProduction ? 'normal' : 'errors-warnings'
 }
