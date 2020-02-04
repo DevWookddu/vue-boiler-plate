@@ -70,6 +70,7 @@ module.exports = {
     host: 'localhost',
     port: 8080,
     https: isProduction,
+    historyApiFallback: true,
   },
   stats: isProduction ? 'normal' : 'errors-warnings',
 }

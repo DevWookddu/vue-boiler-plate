@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    Hello, Vue!
+    <router-view />
   </div>
 </template>
 
@@ -10,8 +10,5 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  #app {
-    color: $baseColor;
-  }
+<style>
 </style>
