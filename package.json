@@ -1,0 +1,22 @@
+{
+  "name": "vue-boiler-plate",
+  "version": "1.0.0",
+  "description": "vue-boiler-plate project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevWookddu/vue-boiler-plate.git"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "author": "DevWookddu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DevWookddu/vue-boiler-plate/issues"
+  },
+  "homepage": "https://github.com/DevWookddu/vue-boiler-plate#readme"
+}
