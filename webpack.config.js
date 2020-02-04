@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const StylelintWebpackPlugin = require('stylelint-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const path = require('path')
@@ -54,6 +55,9 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new StylelintWebpackPlugin({
+      files: ['**/*.{vue,htm,html,css,sss,less,scss,sass}'],
+    }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[chunkhash].css',
     }),
