@@ -1,1 +1,1 @@
-const init = 'init'
+document.body.innerHTML = 'call index.js'

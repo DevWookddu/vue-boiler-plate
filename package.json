@@ -7,7 +7,9 @@
     "type": "git",
     "url": "git+https://github.com/DevWookddu/vue-boiler-plate.git"
   },
-  "keywords": ["vue"],
+  "keywords": [
+    "vue"
+  ],
   "author": "DevWookddu",
   "license": "MIT",
   "bugs": {
@@ -18,6 +20,7 @@
     "build": "webpack"
   },
   "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
   }
