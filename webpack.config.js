@@ -16,8 +16,21 @@ module.exports = {
         loader: 'vue-loader'
       },
       {
-        test: /\.css$/,
-        loader: 'vue-style-loader!css-loader'
+        test: /\.s?(a|c)ss$/,
+        use: [
+          'vue-style-loader',
+          { loader: 'css-loader', options: { sourceMap: true } },
+          { loader: 'sass-loader', options: { sourceMap: true } },
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              sourceMap: true,
+              resources: [
+                path.resolve(__dirname, 'src/assets/scss/base/_variable.scss')
+              ]
+            }
+          }
+        ],
       }
     ]
   },

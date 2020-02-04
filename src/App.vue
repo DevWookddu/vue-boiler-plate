@@ -10,8 +10,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
   #app {
-    color: lightblue;
+    color: $baseColor;
   }
 </style>
