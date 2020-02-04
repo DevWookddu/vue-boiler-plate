@@ -41,6 +41,9 @@ module.exports = {
       filename: path.resolve(__dirname, 'dist/index.html')
     })
   ],
+  resolve: {
+    extensions: ['.vue', '.js', '.json', '.scss']
+  },
   devServer: {
     disableHostCheck: true,
     compress: false,
