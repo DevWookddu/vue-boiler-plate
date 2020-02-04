@@ -23,5 +23,13 @@ module.exports = {
       template: './index.html',
       filename: path.resolve(__dirname, 'dist/index.html')
     })
-  ]
+  ],
+  devServer: {
+    disableHostCheck: true,
+    compress: false,
+    host: 'localhost',
+    port: 8080,
+    https: process.env.NODE_ENV === 'production'
+  },
+  stats: 'errors-warnings'
 }
