@@ -1,11 +1,7 @@
 {
-
   "eslint.validate": [
-    { "language": "vue" },
-    { "language": "javascript" },
-    { "language": "html" },
-  ],
-  "files.associations": {
-    "*.vue": "html"
-  }
+    "vue",
+    "javascript",
+    "html"
+  ]
 }
