@@ -6,10 +6,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const path = require('path')
 
-const isProduction = process.env.NODE_ENV === 'production'
+const MODE = process.env.NODE_ENV || 'development'
+const isProduction = MODE === 'production'
 
 module.exports = {
-  mode: process.env.NODE_ENV || 'development',
+  mode: MODE,
   entry: {
     app: './src/index.js',
   },
@@ -70,6 +71,7 @@ module.exports = {
   resolve: {
     extensions: ['.vue', '.js', '.json', '.scss'],
   },
+  devtool: !isProduction && 'eval-source-map',
   devServer: {
     disableHostCheck: true,
     compress: false,
