@@ -75,10 +75,10 @@ module.exports = {
   devServer: {
     disableHostCheck: true,
     compress: false,
-    host: 'localhost',
+    host: '0.0.0.0',
     port: 8080,
     https: isProduction,
     historyApiFallback: true,
   },
-  stats: isProduction ? 'normal' : 'errors-warnings',
+  stats: process.env.DEV_SERVER ? 'errors-warnings' : 'normal',
 }
